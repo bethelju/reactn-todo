@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const TaskItem = props => {
     return (
-        <View style={styles.listItem}>
-            <Text>{props.title}</Text>
-        </View>
+        <TouchableOpacity onLongPress={props.onDelete}>
+            <View style={styles.listItem}>
+                <Text>{props.title}</Text>
+            </View>
+        </TouchableOpacity>  
     )
 }
 
