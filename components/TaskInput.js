@@ -8,6 +8,9 @@ const TaskInput = props => {
     }
 
     const addTaskHandler = () => {
+        if(!enteredTask.length){
+            return;
+        }
         props.onAddTask(enteredTask);
         setEnteredTask('');
     }
