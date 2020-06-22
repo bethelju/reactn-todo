@@ -4,19 +4,23 @@ import TaskItem from './components/TaskItem'
 import TaskInput from './components/TaskInput'
 
 export default function App() {
+  //Set the react react hooks needed for the component
   const [tasks, setTasks] = useState([]);
   const [isAddMode, setIsAddMode] = useState(false);
 
+  //addTaskHandler that sets the current adds a new task to task list
   const addTaskHandler = task => {
     setTasks(currentTasks => [...currentTasks, 
       {key: Math.random().toString(), value: task}]);
     setIsAddMode(false);
     }
   
+  //Closes the add modal upon pressing close button
   const closeHandler = () => {
     setIsAddMode(false);
   }
 
+  //removes the selected (passed) task from the list
   const removeTaskHandler = taskId => {
     setTasks(currentTasks => {
       return currentTasks.filter((task) => task.key !== taskId);

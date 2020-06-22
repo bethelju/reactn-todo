@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
+//A single task item that can be long pressed to be deleted
 const TaskItem = props => {
     return (
         <TouchableOpacity onLongPress={props.onDelete}>

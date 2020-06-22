@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
 
+//Task Input element that 
 const TaskInput = props => {
+    //State that holds the entered text
     const [enteredTask, setEnteredTask] = useState('');
+    
+    //Changes the text state based upon updates to the input element
     const taskInputHandler = (enteredText) => {
         setEnteredTask(enteredText);
     }
 
+    //Handler for when add button is pressed
     const addTaskHandler = () => {
+        //If the input is blank, don't add
         if(!enteredTask.length){
             return;
         }
+        //Passes to passed in function from App.js
         props.onAddTask(enteredTask);
         setEnteredTask('');
     }
 
+    //Modal for when a new task is to be added
     return (
         <Modal visible={props.visible} animationType="slide">
             <View style={styles.inputContainer}>
